@@ -10,7 +10,7 @@
 <body class="m-3">
 
 <h1 class="text-3xl font-bold text-blue-400">
-  <a href="#">HTMX + Transition basics</a>
+  <a href="#" onclick="window.location.reload();">HTMX + Transition basics</a>
 </h1>
 
 
@@ -19,7 +19,7 @@
 
     <div>
       <button type="button"
-              hx-get="content.html"
+              hx-get="basics/content.html"
               hx-target="#content"
               hx-swap="outerHTML"
               class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -28,7 +28,7 @@
     </div>
     <div class="ml-3">
       <button type="button"
-              hx-get="empty.html"
+              hx-get="basics/empty.html"
               hx-target="#content"
               hx-swap="outerHTML"
               class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
@@ -38,7 +38,7 @@
   </div>
   <div id="content"
        class="transition-all duration-50 ease-in bg-green-50 text-green-100 p-3 rounded-md"
-       hx-get="empty.html"
+       hx-get="basics/empty.html"
        hx-trigger="load"
        hx-swap="outerHTML">
 
