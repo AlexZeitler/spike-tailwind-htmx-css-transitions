@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>HTMX + Transition basics</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/htmx.org@1.8.0"></script>
+  <link href="site.css" rel="stylesheet">
+</head>
+<body class="m-3">
+<div>
+  <h1 class="text-3xl font-bold text-blue-400">
+    <a href="#" onclick="window.location.reload();">HTMX + TailwindCSS Modals</a>
+  </h1>
+
+
+  <div class="p-8 border rounded-lg mt-8">
+    <div class="mt-8 flex justify-center p-6">
+
+      <div>
+        <button type="button"
+                hx-get="modals/modal.html"
+                hx-target="#backdrop"
+                hx-swap="outerHTML"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Load content
+        </button>
+      </div>
+      <div class="ml-3">
+        <button type="button"
+                hx-get="basics/empty.html"
+                hx-target="#content"
+                hx-swap="outerHTML"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+          Unload content
+        </button>
+      </div>
+    </div>
+    <div id="modal-container"
+         class="transition-all duration-50 ease-in bg-green-50 text-green-100 p-3 rounded-md"
+         hx-get="modals/empty.html"
+         hx-trigger="load"
+         hx-swap="outerHTML">
+
+    </div>
+  </div>
+</div>
+<div class="transition-all duration-500 relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="backdrop"></div>
+<script >
+  function closeModal() {
+    // const container = document.getElementById("modal-container");
+
+    const backdrop = document.getElementById("backdrop");
+
+    // const modal = document.getElementById("modal");
+
+
+    backdrop.style.display = 'none'
+    // modal.style.display = 'none'
+
+    // setTimeout(function () {
+    //
+    //   container.innerHTML = ''
+    // }, 1000)
+  }
+</script>
+</body>
+</html>
